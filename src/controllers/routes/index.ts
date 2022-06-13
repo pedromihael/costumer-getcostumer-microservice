@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express'
-import { GetCostumerController } from '../getControllers/GetCostumerController';
+import { GetCostumerByIdController } from '../getControllers/GetCostumerController';
 
 const router = Router()
 
 router.get('/:id', async (req: Request, res: Response) => {
-  const response = await GetCostumerController(req)
+  const response = await GetCostumerByIdController(req)
   res.status(response.status).send(response)
 })
 
