@@ -19,5 +19,5 @@ app.use(routes)
 initializeLogs(app);
 
 app.listen(PORT, () => {
-  console.log(`GET Costumer Service is running on port ${PORT}!`);
+  console.log(`Get Costumer Service is running on port ${PORT}!`);
 });
