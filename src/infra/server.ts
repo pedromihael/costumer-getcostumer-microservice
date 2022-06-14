@@ -1,5 +1,7 @@
-import 'reflect-metadata';
-import 'regenerator-runtime/runtime.js';
+import "reflect-metadata";
+import "./containers/registry"
+import "./database/MongoConnection"
+import "regenerator-runtime/runtime.js";
 import cors from 'cors';
 import express from "express";
 import bodyParser from 'body-parser';
@@ -19,5 +21,5 @@ app.use(routes)
 initializeLogs(app);
 
 app.listen(PORT, () => {
-  console.log(`Get Costumer Service is running on port ${PORT}!`);
+  console.log(`Costumer Microservice is running on port ${PORT}!`);
 });

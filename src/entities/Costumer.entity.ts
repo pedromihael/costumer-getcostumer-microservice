@@ -1,6 +1,9 @@
 import { getModelForClass, prop } from "@typegoose/typegoose";
 
 class Costumer {
+  @prop({ unique: true, required: true })
+  public _id!: string;
+
   @prop({ required: true })
   public name!: string;
 

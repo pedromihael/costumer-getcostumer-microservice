@@ -16,3 +16,4 @@
 ::ffff:127.0.0.1 - GET / 200 5.591 ms - 20 {}
 ::ffff:127.0.0.1 - GET /health-check 200 7.480 ms - 20 {}
 ::ffff:127.0.0.1 - GET /1 404 4.023 ms - 140 {}
+::ffff:127.0.0.1 - POST /create-costumer 404 2.010 ms - 155 {"name":"Dotson Jennings","age":32,"company":"HOPELI","email":"dotsonjennings@hopeli.com"}
