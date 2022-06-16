@@ -5,7 +5,7 @@ import { MsResponseBuilder } from "../../entities/builders/MSResponseBuilder";
 import { MSResponse } from "../../entities/types/MSResponse";
 
 @autoInjectable()
-export class ListCostumers {
+export class ListCostumersUseCase {
   constructor(@inject("CostumerRepository") private costumerRepository: ICostumerRepository) {}
 
   async execute(): Promise<MSResponse> {

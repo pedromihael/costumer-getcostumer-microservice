@@ -22,7 +22,6 @@ export class CreateCostumerUseCase {
       const id = uuidv4()
       try {
         const documentResponse = await this.costumerRepository.create(this.request, id)
-        console.log("documentResponse")
         MSResponseData.setStatus(201).setResponse(documentResponse);
       } catch (error) {
         console.log('error', error)

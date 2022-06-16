@@ -20,4 +20,8 @@ export class MongoCostumerRepository implements ICostumerRepository {
     const payload = { ...req.body }
     return costumerModel.findOneAndUpdate(filter, payload)
   }
+
+  public async remove(req: Request): Promise<any> {
+    return costumerModel.findOneAndDelete({ _id: req.params.id })
+  }
 }

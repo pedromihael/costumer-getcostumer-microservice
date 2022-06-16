@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { CreateCostumerByIdController } from '../../POST/CreateCostumerRepository';
+import { CreateCostumerByIdController } from '../../POST/CreateCostumerController';
 
 const router = Router()
 
