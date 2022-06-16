@@ -14,4 +14,10 @@ export class MongoCostumerRepository implements ICostumerRepository {
   public async list(): Promise<any> {
     return costumerModel.find()
   }
+
+  public async update(req: Request): Promise<any> {
+    const filter = { _id: req.params.id }
+    const payload = { ...req.body }
+    return costumerModel.findOneAndUpdate(filter, payload)
+  }
 }

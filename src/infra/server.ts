@@ -7,7 +7,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 import { initializeLogs } from '../helpers/initializeLogs'
-import { GETRoutes, POSTRoutes } from '../controllers/routes'
+import { GETRoutes, POSTRoutes, PATCHRoutes } from '../controllers/routes'
 dotenv.config()
 
 const PORT = process.env.PORT;
@@ -18,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(GETRoutes)
 app.use(POSTRoutes)
+app.use(PATCHRoutes)
 
 initializeLogs(app);
 

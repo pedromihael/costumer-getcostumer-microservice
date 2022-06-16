@@ -9,7 +9,7 @@ export class ListCostumers {
   constructor(@inject("CostumerRepository") private costumerRepository: ICostumerRepository) {}
 
   async execute(): Promise<MSResponse> {
-    const MSResponseData = new MsResponseBuilder().setService("Costumer").setRoute("/get-costumer")
+    const MSResponseData = new MsResponseBuilder().setService("Costumer").setRoute("/list-costumers")
     
       const documentResponse = await this.costumerRepository.list()
       MSResponseData.setStatus(200).setResponse(documentResponse);
