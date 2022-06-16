@@ -5,5 +5,5 @@ export interface ICostumerRepository {
   findBy: (req: Request, key: string, value: string) => Promise<any>
   update?: (req: Request) => Promise<any>
   remove?: (req: Request) => Promise<any>
-  list?: () => Promise<any[]>
+  list: () => Promise<any[]>
 }

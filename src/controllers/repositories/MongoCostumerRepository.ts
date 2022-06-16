@@ -10,4 +10,8 @@ export class MongoCostumerRepository implements ICostumerRepository {
   public async findBy(req: Request, key: string, value: string): Promise<any> {
     return costumerModel.find({ [key]: value })
   }
+
+  public async list(): Promise<any> {
+    return costumerModel.find()
+  }
 }
