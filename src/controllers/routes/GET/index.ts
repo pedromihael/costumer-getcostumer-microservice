@@ -8,7 +8,12 @@ router.get('/get-costumer/', async (req: Request, res: Response) => {
   res.status(response.status).send(response)
 })
 
-router.get('/get-costumer/:id', async (req: Request, res: Response) => {
+router.get('/get-costumer/:paramname/:param', async (req: Request, res: Response) => {
+  const response = await GetCostumerByIdController(req)
+  res.status(response.status).send(response)
+})
+
+router.get('/get-costumer/:paramname/', async (req: Request, res: Response) => {
   const response = await GetCostumerByIdController(req)
   res.status(response.status).send(response)
 })

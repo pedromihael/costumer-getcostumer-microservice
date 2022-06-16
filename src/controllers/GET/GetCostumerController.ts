@@ -1,8 +1,8 @@
 import { Request } from "express"
-import { GetCostumerByIdUseCase } from "../../useCases/GetCostumerById/GetCostumerByIdUseCase";
+import { GetCostumerByUseCase } from "../../useCases/GetCostumerBy/GetCostumerByUseCase";
 import { MongoCostumerRepository } from "../repositories/MongoCostumerRepository";
 
 export const GetCostumerByIdController = async (request: Request) => {
-  const getCostumerByIdUseCase = new GetCostumerByIdUseCase(new MongoCostumerRepository(), request);
-  return getCostumerByIdUseCase.execute()
+  const getCostumerByUseCase = new GetCostumerByUseCase(new MongoCostumerRepository(), request);
+  return getCostumerByUseCase.execute()
 }

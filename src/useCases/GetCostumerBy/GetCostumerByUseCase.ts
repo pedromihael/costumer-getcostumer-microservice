@@ -1,6 +1,7 @@
 import { Request } from "express";
 import "reflect-metadata";
 import { autoInjectable, inject } from "tsyringe"
+import { validateCostumerParamName } from "../../entities/validations/validateCostumerParamName";
 import { ICostumerRepository } from "../../controllers/repositories/ICostumerRepository";
 import { MsResponseBuilder } from "../../entities/builders/MSResponseBuilder";
 import { MSResponse } from "../../entities/types/MSResponse";
@@ -8,25 +9,34 @@ import { MSResponse } from "../../entities/types/MSResponse";
 @autoInjectable()
 export class GetCostumerByUseCase {
   private request: Request;
-  private getBy: string;
+  private getByKey: string;
+  private getByValue: string;
   
-  constructor(@inject("CostumerRepository") private costumerRepository: ICostumerRepository, request: Request, getBy: string) {
+  constructor(@inject("CostumerRepository") private costumerRepository: ICostumerRepository, request: Request) {
     this.request = request;
-    this.getBy = getBy;
+    this.getByKey = this.request.params.paramname;
+    this.getByValue = this.request.params.param;
   }
 
   async execute(): Promise<MSResponse> {
-    const hasParameter = this.request && this.request.params[this.getBy]
+    const hasParameter = this.request && this.request.params.paramname && this.request.params.param
     const MSResponseData = new MsResponseBuilder().setService("Costumer").setRoute("/get-costumer")
+    const isParamKeyValid = validateCostumerParamName(this.getByKey)
     
     if (hasParameter) {
-      const documentResponse = await this.costumerRepository.findBy(this.request, this.getBy)
+      const documentResponse = await this.costumerRepository.findBy(this.request, this.getByKey, this.getByValue)
       MSResponseData.setStatus(200).setResponse(documentResponse);
-      
-      if (!documentResponse) {
-        MSResponseData.setStatus(404).setResponse(`Costumer with parameter ${this.getBy}:${this.request.params[this.getBy]} Not Found`);
+
+
+      if (!documentResponse.length) {
+        MSResponseData.setStatus(404).setResponse(`Costumer with parameter ${this.getByKey}:${this.getByValue} Not Found`);
       }
-    } else MSResponseData.setStatus(422).setResponse(`Missing Parameter ${this.getBy} on request`);
+
+      if (!isParamKeyValid) {
+        MSResponseData.setStatus(422).setResponse(`Bad Request: Parameter ${this.getByKey} not valid`);
+      }
+
+    } else MSResponseData.setStatus(422).setResponse(`Missing Parameter ${this.getByKey} on request`);
 
     return MSResponseData.build()
   }
