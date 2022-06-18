@@ -21,3 +21,4 @@
 ::ffff:127.0.0.1 - GET /get-costumer/ 404 3.165 ms - 152 {}
 ::ffff:127.0.0.1 - GET /get-costumer/ 404 7.416 ms - 152 {}
 ::ffff:127.0.0.1 - GET /get-costumer/ 404 13.627 ms - 152 {}
+::ffff:127.0.0.1 - GET /get-costumer/picture/https://avatars.githubusercontent.com/u/42648914?v=4 404 6.499 ms - 208 {}

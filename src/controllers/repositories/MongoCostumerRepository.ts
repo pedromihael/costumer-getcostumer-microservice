@@ -7,8 +7,11 @@ export class MongoCostumerRepository implements ICostumerRepository {
     return costumerModel.create({ ...req.body, _id })
   }
 
-  public async findBy(key: string, value: string): Promise<any> {
-    return costumerModel.find({ [key]: value })
+  public async findBy(key: string, value: string | number): Promise<any> {
+    const valueToSearch = typeof value === 'string' && key !== 'phone' ?
+      { $regex: new RegExp("^" + value.toLowerCase(), "i") } : value
+        
+    return costumerModel.find({ [key]: valueToSearch })
   }
 
   public async list(): Promise<any> {

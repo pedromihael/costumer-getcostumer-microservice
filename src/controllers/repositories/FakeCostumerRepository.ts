@@ -16,8 +16,14 @@ export class FakeCostumerRepository implements ICostumerRepository {
     return this.mock[this.mock.length - 1]
   }
 
-  public async findBy(key: string, value: string): Promise<any> {
-    return this.mock.find(o => o[key] === value)
+  public async findBy(key: string, value: string | number): Promise<any> {
+    const filterByKey = (o: any) => {
+      return key === 'phone' ?
+        o[key] === value :
+        JSON.stringify(o[key]).match(new RegExp("^" + JSON.stringify(value).toLowerCase(), "i"))
+    }
+
+    return this.mock.filter(filterByKey)
   }
 
   public async list(): Promise<any> {

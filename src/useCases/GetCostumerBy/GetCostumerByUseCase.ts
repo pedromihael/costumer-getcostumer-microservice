@@ -24,7 +24,9 @@ export class GetCostumerByUseCase {
     const isParamKeyValid = validateCostumerParamName(this.getByKey)
     
     if (hasParameter) {
-      const documentResponse = await this.costumerRepository.findBy(this.getByKey, this.getByValue)
+      const valueToSearch = this.getByKey === 'age' ? parseInt(this.getByValue) : this.getByValue
+      const documentResponse = await this.costumerRepository.findBy(this.getByKey, valueToSearch)
+
       MSResponseData.setStatus(200).setResponse(documentResponse);
 
 
