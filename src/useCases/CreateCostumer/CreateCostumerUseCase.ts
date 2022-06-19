@@ -19,7 +19,7 @@ export class CreateCostumerUseCase {
     const isBodyValid = validateCostumerRequest(this.request)
     const MSResponseData = new MsResponseBuilder().setService("Costumer").setRoute("/create-costumer")
     if (isBodyValid) {
-      const id = uuidv4()
+      const id = this.request.body._id || uuidv4()
       try {
         const documentResponse = await this.costumerRepository.create(this.request, id)
         MSResponseData.setStatus(201).setResponse(documentResponse);
