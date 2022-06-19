@@ -21,6 +21,9 @@ class Costumer {
 
   @prop()
   public phone?: string;
+
+  @prop()
+  public greeting?: string;
 }
 
 export const costumerModel = getModelForClass(Costumer)

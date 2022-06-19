@@ -1,11 +1,13 @@
 {
-  "name": "get-costumer",
+  "name": "costumers-api",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
+  "type": "module",  
   "scripts": {
     "test": "jest",
     "start": "ts-node src/index.ts",
+    "dev:populate": "node src/helpers/populate/index.js",
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts"
   },
   "repository": {
@@ -26,6 +28,7 @@
     "@types/jest": "^28.1.2",
     "@types/morgan": "^1.9.3",
     "jest": "^28.1.1",
+    "node-fetch": "^3.2.6",
     "regenerator-runtime": "^0.13.9",
     "ts-jest": "^28.0.5",
     "ts-node-dev": "^2.0.0",

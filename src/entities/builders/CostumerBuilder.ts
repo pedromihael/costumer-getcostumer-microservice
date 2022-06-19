@@ -12,6 +12,7 @@ export class CostumerBuilder {
       email: 'any email',
       picture: 'any picture url',
       phone: 'any phone',
+      greeting: 'any greeting'
     }
   }
 
@@ -42,6 +43,11 @@ export class CostumerBuilder {
 
   public setPhone(phone: string) {
     this.costumerData.phone = phone;
+    return this;
+  }
+
+  public setGreeting(greeting: string) {
+    this.costumerData.greeting = greeting;
     return this;
   }
 

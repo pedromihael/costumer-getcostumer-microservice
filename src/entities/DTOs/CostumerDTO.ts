@@ -6,4 +6,5 @@ export const CostumerDTO = {
   email: 'any',
   picture: 'any',
   phone: 'any',
+  greeting: 'any greeting'
 }
