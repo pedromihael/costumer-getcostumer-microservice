@@ -37,7 +37,7 @@ export class FakeCostumerRepository implements ICostumerRepository {
   }
 
   public async remove(req: Request): Promise<any> {
-    this.removeFromMock(req.params.id)
-    return this.mock
+    const removed = this.removeFromMock(req.params.id)
+    return removed
   }
 }
