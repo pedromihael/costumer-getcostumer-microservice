@@ -1,4 +1,4 @@
-PORT=3013
+PORT=8888
 DB_CONN_STRING="mongodb+srv://pagaleve_teste:<pass>@cluster0.lumgc.mongodb.net/?retryWrites=true&w=majority&ssl=true"
 DB_NAME="pagaleve_teste"
 COLLECTION_NAME="costumers"
