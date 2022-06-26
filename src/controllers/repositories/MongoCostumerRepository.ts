@@ -4,7 +4,11 @@ import { ICostumerRepository } from "./ICostumerRepository";
 
 export class MongoCostumerRepository implements ICostumerRepository {
   public async create(req: Request, _id: string): Promise<any> {
-    return costumerModel.create({ ...req.body, _id })
+    let randomPicture = ''
+    if (!req.body.picture) {
+      randomPicture = this.getRandomLego()
+    }
+    return costumerModel.create({ ...req.body, _id, picture: randomPicture })
   }
 
   public async findBy(key: string, value: string | number): Promise<any> {
@@ -26,5 +30,10 @@ export class MongoCostumerRepository implements ICostumerRepository {
 
   public async remove(req: Request): Promise<any> {
     return costumerModel.findOneAndDelete({ _id: req.params.id })
+  }
+
+  private getRandomLego(): string  {
+    const random = Math.ceil(Math.random() * 9)
+    return `https://randomuser.me/api/portraits/lego/${random}.jpg`
   }
 }
