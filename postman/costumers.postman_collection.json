@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "93f649c0-221d-4459-8fdf-81ac17c60d6f",
+		"name": "costumers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/health-check",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCostumerBy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/get-costumer/name/Pedro%20Mihael",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get-costumer",
+						"name",
+						"Pedro%20Mihael"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListCostumers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/list-costumers",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"list-costumers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCostumer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"emailnovo@trabalho.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/update-costumer/aa1dd197-cc2b-4f47-803e-f9b75854fae3",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"update-costumer",
+						"aa1dd197-cc2b-4f47-803e-f9b75854fae3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCostumer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 23,\n    \"name\": \"Pedro Mihael\",\n    \"company\": \"Pagaleve\",\n    \"email\": \"mihael@pagaleve.com.br\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/create-costumer",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"create-costumer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCostumer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 23,\n    \"name\": \"Pedro Mihael\",\n    \"company\": \"Pagaleve\",\n    \"email\": \"mihael@pagaleve.com.br\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://costumers-api.herokuapp.com/delete-costumer/aa1dd197-cc2b-4f47-803e-f9b75854fae3",
+					"protocol": "https",
+					"host": [
+						"costumers-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete-costumer",
+						"aa1dd197-cc2b-4f47-803e-f9b75854fae3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
